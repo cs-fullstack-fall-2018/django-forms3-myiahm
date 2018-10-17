@@ -1,25 +1,25 @@
-{% extends 'forms_app/base.html' %}
-{% block content %}
 {# Testing here #}
 {% load static %}
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="{% static 'forms_app/bootstrap.css' %}">
-<div class="jumbotron text-center" >
-	<p><em> Non Profit DataBase </em></p>
-	<p><a href="{% url 'add' %}">Click to add Your Non Profit </a></p>
+<link rel="stylesheet" href="{% static 'forms_app/style/css.css' %}">
+
+<div class="jumbotron text-center" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3F9o5loS2YW5O67gUkEqXxkXSA_P_16GQ3GMt9vLiHlzYP2WN')">
+    <p><em> Non Profit DataBase </em></p>
+    <p><a href="{% url 'add' %}">Click to add Your Non Profit </a></p>
 </div >
-<p>hello moto</p>
+<body>
 {% if form_list %}
 <ul>
-	{% for eachItem in form_list %}
-	<li><h1>{{ eachItem.name }}
-		<a href="{% url 'edit' pk=eachItem.pk %}">Edit</a></h1></li>
-	{% endfor %}
+    {% for eachItem in form_list %}
+    <li><h1>{{ eachItem.name }}
+        <a href="{% url 'edit' pk=eachItem.pk %}">Edit</a></h1></li>
+    {% endfor %}
 </ul>
 {% else %}
 <p>Nothing available.</p>
 {% endif %}
+</body>
 <script src="{% static 'forms_app/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'forms_app/bootstrap.js' %}"></script>
-{% endblock %}
